@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Decants Premium | Perfumes</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background:
+        radial-gradient(circle at top, #242424 0%, #090909 45%, #050505 100%);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* HEADER */
+
+header {
+    text-align: center;
+    padding: 70px 20px 55px;
+    border-bottom: 1px solid rgba(212,175,55,.25);
+}
+
+.logo {
+    color: #d4af37;
+    font-size: 13px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 8vw, 75px);
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+header h1 span {
+    color: #d4af37;
+}
+
+header p {
+    margin-top: 18px;
+    color: #aaa;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+/* CATÁLOGO */
+
+.catalogo {
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 20px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* TARJETAS */
+
+.perfume {
+    position: relative;
+    overflow: hidden;
+
+    background: linear-gradient(
+        145deg,
+        rgba(35,35,35,.95),
+        rgba(12,12,12,.98)
+    );
+
+    border: 1px solid rgba(212,175,55,.22);
+    border-radius: 22px;
+
+    transition: .4s ease;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.5);
+}
+
+.perfume:hover {
+    transform: translateY(-10px);
+
+    border-color: rgba(212,175,55,.7);
+
+    box-shadow:
+        0 25px 60px rgba(212,175,55,.12);
+}
+
+/* IMAGEN */
+
+.imagen {
+    height: 360px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212,175,55,.13),
+            transparent 60%
+        );
+
+    overflow: hidden;
+}
+
+.imagen img {
+    width: 85%;
+    height: 90%;
+
+    object-fit: contain;
+
+    transition: .5s ease;
+
+    filter: drop-shadow(
+        0 20px 25px rgba(0,0,0,.8)
+    );
+}
+
+.perfume:hover .imagen img {
+    transform: scale(1.06);
+}
+
+/* CONTENIDO */
+
+.contenido {
+    padding: 28px;
+}
+
+.categoria {
+    color: #d4af37;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.contenido h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+    line-height: 1.2;
+    margin-bottom: 7px;
+}
+
+.marca {
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+/* PRECIOS */
+
+.precios {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.precio {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 14px 16px;
+
+    background: rgba(255,255,255,.035);
+
+    border: 1px solid rgba(255,255,255,.07);
+
+    border-radius: 10px;
+}
+
+.ml {
+    color: #bbb;
+    font-size: 14px;
+}
+
+.valor {
+    color: #d4af37;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* BOTÓN */
+
+.whatsapp {
+    display: block;
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #d4af37,
+        #f0d675
+    );
+
+    color: #080808;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    transition: .3s;
+}
+
+.whatsapp:hover {
+    transform: scale(1.02);
+
+    box-shadow:
+        0 8px 25px rgba(212,175,55,.25);
+}
+
+/* WHATSAPP FLOTANTE */
+
+.whatsapp-float {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #25D366;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 25px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.5);
+
+    z-index: 100;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+
+    padding: 45px 20px;
+
+    border-top:
+        1px solid rgba(212,175,55,.18);
+
+    color: #666;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+}
+
+footer strong {
+    color: #d4af37;
+}
+
+/* CELULAR */
+
+@media (max-width: 900px) {
+
+    .catalogo {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 55px 20px 40px;
+    }
+
+    .catalogo {
+        grid-template-columns: 1fr;
+        padding: 40px 15px;
+    }
+
+    .imagen {
+        height: 330px;
+    }
+
+    .contenido h2 {
+        font-size: 25px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        Decants Premium
+    </div>
+
+    <h1>
+        Tu perfume,<br>
+        <span>en pequeño.</span>
+    </h1>
+
+    <p>
+        Fragancias originales · Presentaciones de 5 ml y 10 ml
+    </p>
+
+</header>
+
+
+
+<main class="catalogo">
+
+
+<!-- ============================= -->
+<!-- 9PM -->
+<!-- ============================= -->
+
+<div class="perfume">
+
+    <div class="imagen">
+
+        <img
+        src="https://souqscent.com/cdn/shop/files/paris_corner_khair_collection_feAT_WORK_-_2025-05-20T185053.831_2_1200x1200.png?v=1747756342"
+        alt="Afnan 9PM">
+
+    </div>
+
+
+    <div class="contenido">
+
+        <div class="categoria">
+            Eau de Parfum
+        </div>
+
+        <h2>
+            9PM
+        </h2>
+
+        <div class="marca">
+            Afnan
+        </div>
+
+
+        <div class="precios">
+
+            <div class="precio">
+
+                <span class="ml">
+                    5 ml
+                </span>
+
+                <span class="valor">
+                    $90
+                </span>
+
+            </div>
+
+
+            <div class="precio">
+
+                <span class="ml">
+                    10 ml
+                </span>
+
+                <span class="valor">
+                    $160
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <a
+        class="whatsapp"
+        href="https://wa.me/522941040747?text=Hola,%20quiero%20pedir%20un%20decant%20de%20Afnan%209PM"
+        target="_blank">
+
+            PEDIR POR WHATSAPP
+
+        </a>
+
+    </div>
+
+</div>
+
+
+
+<!-- ============================= -->
+<!-- MANDARIN SKY -->
+<!-- ============================= -->
+
+<div class="perfume">
+
+    <div class="imagen">
+
+        <img
+        src="C:\Users\david\Desktop\decants\Odyssey Mandarin Sky Elixir.webp"
+        alt="Odyssey Mandarin Sky Elixir"
+        onerror="this.style.display='none'">
+
+        <div style="
+        position:absolute;
+        color:#777;
+        text-align:center;
+        font-size:13px;
+        ">
+        </div>
+
+    </div>
+
+
+    <div class="contenido">
+
+        <div class="categoria">
+            Elixir · Eau de Parfum
+        </div>
+
+        <h2>
+            Odyssey Mandarin Sky Elixir
+        </h2>
+
+        <div class="marca">
+            Armaf
+        </div>
+
+
+        <div class="precios">
+
+            <div class="precio">
+
+                <span class="ml">
+                    5 ml
+                </span>
+
+                <span class="valor">
+                    $120
+                </span>
+
+            </div>
+
+
+            <div class="precio">
+
+                <span class="ml">
+                    10 ml
+                </span>
+
+                <span class="valor">
+                    $200
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <a
+        class="whatsapp"
+        href="https://wa.me/522941040747?text=Hola,%20quiero%20pedir%20un%20decant%20de%20Odyssey%20Mandarin%20Sky%20Elixir"
+        target="_blank">
+
+            PEDIR POR WHATSAPP
+
+        </a>
+
+    </div>
+
+</div>
+
+
+
+<!-- ============================= -->
+<!-- HAWAS FIRE -->
+<!-- ============================= -->
+
+<div class="perfume">
+
+    <div class="imagen">
+
+        <img
+        src="C:\Users\david\Desktop\decants\Hawas Fire.webp"
+        alt="Hawas Fire">
+
+    </div>
+
+
+    <div class="contenido">
+
+        <div class="categoria">
+            Eau de Parfum
+        </div>
+
+        <h2>
+            Hawas Fire
+        </h2>
+
+        <div class="marca">
+            Rasasi
+        </div>
+
+
+        <div class="precios">
+
+            <div class="precio">
+
+                <span class="ml">
+                    5 ml
+                </span>
+
+                <span class="valor">
+                    $120
+                </span>
+
+            </div>
+
+
+            <div class="precio">
+
+                <span class="ml">
+                    10 ml
+                </span>
+
+                <span class="valor">
+                    $220
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <a
+        class="whatsapp"
+        href="https://wa.me/522941040747?text=Hola,%20quiero%20pedir%20un%20decant%20de%20Hawas%20Fire"
+        target="_blank">
+
+            PEDIR POR WHATSAPP
+
+        </a>
+
+    </div>
+
+</div>
+
+
+</main>
+
+
+
+<a
+class="whatsapp-float"
+href="https://wa.me/522941040747?text=Hola,%20quiero%20información%20sobre%20los%20decants"
+target="_blank">
+
+    ☎️
+
+</a>
+
+
+
+<footer>
+
+    <p>
+        <strong>DECANTS PREMIUM</strong>
+    </p>
+
+    <br>
+
+    <p>
+        Precios en MXN · 5 ml y 10 ml
+    </p>
+
+    <br>
+
+    <p>
+        © 2026 Todos los derechos reservados
+    </p>
+
+</footer>
+
+
+</body>
+</html>
